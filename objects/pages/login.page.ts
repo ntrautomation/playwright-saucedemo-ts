@@ -18,4 +18,4 @@ class LoginPage extends BasePage{
         await this.password.fill(password);
         await this.loginBtn.click();
     }
-}
+}export default LoginPage;

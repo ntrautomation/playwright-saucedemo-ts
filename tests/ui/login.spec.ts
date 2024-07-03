@@ -1,11 +1,16 @@
 import { test, expect } from '@playwright/test';
+import LoginPage from 'objects/pages/login.page';
 
 test.describe('Login page test', () => {
+    let loginPage : LoginPage;
+
+    test.beforeEach(async ({ page }) => {
+        loginPage = new LoginPage(page);
+        await loginPage.navigate(process.env.BASE_URL);
+    })
+    
     test('Login - Happy flow', async ({ page }) => {
-        await page.goto(process.env.BASE_URL);
-        await page.locator('[data-test="username"]').fill(process.env.USER_NAME);
-        await page.locator('[data-test="password"]').fill(process.env.PASSWORD);
-        await page.locator('[data-test="login-button"]').click();
+        await loginPage.loginUser(process.env.USER_NAME, process.env.PASSWORD);
         expect(1).toBe(1);
       }); 
 });
