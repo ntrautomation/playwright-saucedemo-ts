@@ -2,10 +2,20 @@ import { defineConfig, devices } from '@playwright/test';
 
 /**
  * Read environment variables from file.
- * https://github.com/motdotla/dotenv
+ * https://www.npmjs.com/package/dotenv
  */
-// import dotenv from 'dotenv';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import * as dotenv from 'dotenv';
+//.env settings
+dotenv.config();
+if(process.env.ENVIRONMENT){
+  console.log('ENVIRONMENT: ' , process.env.ENVIRONMENT);
+  dotenv.config({
+    path: `.env${process.env.ENVIRONMENT}`,
+    override: true,
+  })
+}else {
+  dotenv.config()
+}
 
 /**
  * See https://playwright.dev/docs/test-configuration.
