@@ -31,4 +31,9 @@ class Users {
         userName: process.env.VISUAL_USER,
         password: process.env.PASSWORD
     }
+
+    readonly BAD_PW_USER: IUser = {
+        userName: process.env.USER_NAME,
+        password: '123'
+    }
 }export const User = new Users();

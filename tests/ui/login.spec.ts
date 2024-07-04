@@ -46,8 +46,15 @@ test.describe('Login page test', () => {
     test('Login - Locked out user', async () => {
         await loginPage.loginUser(User.LOCKED_OUT_USER);
         expect(await loginPage.getErrorMessageText())
-            .toContain('Epic sadface');
+            .toContain('Sorry, this user has been locked out.');
         
+    });
+
+    test('Login - Incorrect password', async () => {
+        await loginPage.loginUser(User.BAD_PW_USER);
+        expect(await loginPage.getErrorMessageText())
+            .toContain(' Username and password do not match any user in this service')
     })
+    
     
 });
