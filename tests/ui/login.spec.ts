@@ -9,8 +9,8 @@ test.describe('Login page test', () => {
         await loginPage.navigate(process.env.BASE_URL);
     })
     
-    test('Login - Happy flow', async ({ page }) => {
-        await loginPage.loginUser(process.env.USER_NAME, process.env.PASSWORD);
+    test('Login - Happy flow', async () => {
+        await loginPage.loginUser(Users.TEST_USER);
         expect(1).toBe(1);
       }); 
 });

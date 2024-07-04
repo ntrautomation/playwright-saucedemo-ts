@@ -13,9 +13,9 @@ class LoginPage extends BasePage{
 
     //METHODS
 
-    async loginUser(userName: string, password: string){
-        await this.userName.fill(userName);
-        await this.password.fill(password);
+    async loginUser(user: IUser){
+        await this.userName.fill(user.userName);
+        await this.password.fill(user.password);
         await this.loginBtn.click();
     }
 }export default LoginPage;
