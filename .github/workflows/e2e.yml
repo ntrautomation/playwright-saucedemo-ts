@@ -3,6 +3,14 @@ on: [push]
 
 env:
   BASE_URL: ${{ secrets.BASE_URL}}
+  USER_NAME: ${{ secrets.USER_NAME}}
+  PASSWORD: ${{ secrets.PASSWORD}}
+  LOCKED_OUT_USER: ${{ secrets.LOCKED_OUT_USER}}
+  PROBLEM_USER: ${{ secrets.PROBLEM_USER}}
+  PERFORMANCE_GLITCH_USER: ${{ secrets.PERFORMANCE_GLITCH_USER}}
+  ERROR_USER: ${{ secrets.ERROR_USER}}
+  VISUAL_USER: ${{ secrets.VISUAL_USER}}
+
 jobs:
   test-e2e:
     name: Run E2E tests
