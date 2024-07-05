@@ -15,5 +15,6 @@ jobs:
         run: npx playwright install --with-deps
       - name: Run your tests
         run: npx playwright test
-        with:
+      - name: running env secrets
+        env:
           BASE_URL: ${{ secrects.BASE_URL}}
