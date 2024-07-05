@@ -1,8 +1,10 @@
 import { Page } from "@playwright/test";
+import HelperMethods from "objects/helper/helperMethods";
 
 class BasePage{
 
     page: Page;
+    helper = new HelperMethods();
 
     constructor(page){
         this.page = page;
