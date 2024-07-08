@@ -1,3 +1,4 @@
+import { Env } from '@objects/envConfig/env';
 import { defineConfig, devices } from '@playwright/test';
 
 /**
@@ -42,7 +43,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     testIdAttribute: 'id',
 
-    storageState: '@data/loggedInState.json'
+    storageState: Env.LOGGED_STATE_PATH
   },
 
   /* Configure projects for major browsers */

@@ -1,3 +1,4 @@
+import { Env } from "@objects/envConfig/env";
 import { FullConfig, chromium } from "@playwright/test";
 
 /* eslint-disable-next-line @typescript-eslint/no-unused-vars*/
@@ -15,7 +16,7 @@ async function globalLogin(config: FullConfig){
     await page.locator('[data-test="login-button"]')
         .click();
 
-    await page.context().storageState({ path: '@data/loggedInState.json'});
+    await page.context().storageState({ path: Env.LOGGED_STATE_PATH});
     await browser.close();
 }
 export default globalLogin;

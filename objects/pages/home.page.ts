@@ -11,6 +11,8 @@ class HomePage extends BasePage{
     private readonly burgerMenu: Locator = this.page.getByTestId('react-burger-menu-btn');
     private readonly burgerMenuItems: Locator = this.page.locator('.bm-item-list a');
     private readonly products: Locator = this.page.locator('.inventory_item_name');
+    private readonly sortDropDown: Locator = this.page.locator('.product_sort_container')
+   // private readonly sortOptions = (option: string) => this.sortDropDown.getByRole("option", {name: option});
 
     //METHODS
     async getHomeTitleText(){
@@ -27,5 +29,10 @@ class HomePage extends BasePage{
 
     async getProductNames(){
         return await this.helper.getItemsInnerText(this.products);
+    }
+
+    async selectOrderByOption(option: string){
+        await this.sortDropDown.click();
+        await this.sortDropDown.selectOption({value: option});
     }
 }export default HomePage;
