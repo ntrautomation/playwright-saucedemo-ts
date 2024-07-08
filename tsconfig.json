@@ -5,7 +5,7 @@
         "@objects/*" : ["objects/*"],
         "@pages/*" : ["objects/pages/*"],
         "@helpers/*" : ["objects/helper/*"],
-        "@environmentConfig/*" : ["objects/environmentConfig/*"],
+        "@envConfig/*" : ["objects/envConfig/*"],
         "@data/*" : ["objects/data/*"],
         "@fixtures/*" : ["objects/fixtures/*"]
       },
