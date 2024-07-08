@@ -2,12 +2,12 @@
     "compilerOptions": {
       "baseUrl": "",
       "paths": {
-        "@e2e/*" : ["e2e/*"],
-        "@pages/*" : ["e2e/pages/*"],
-        "@helpers/*" : ["e2e/helpers/*"],
-        "@environmentConfig/*" : ["e2e/environmentConfig/*"],
-        "@data/*" : ["e2e/data/*"],
-        "@fixtures/*" : ["e2e/fixtures/*"]
+        "@objects/*" : ["objects/*"],
+        "@pages/*" : ["objects/pages/*"],
+        "@helpers/*" : ["objects/helper/*"],
+        "@environmentConfig/*" : ["objects/environmentConfig/*"],
+        "@data/*" : ["objects/data/*"],
+        "@fixtures/*" : ["objects/fixtures/*"]
       },
       "resolveJsonModule": true,
       "moduleResolution": "node",

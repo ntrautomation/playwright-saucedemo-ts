@@ -1,27 +1,21 @@
 import { test, expect } from '@playwright/test';
-import { BurgerMenuItems, ProductItems } from 'objects/helper/constants/burgerMenuItems';
-import { User } from "objects/helper/constants/users";
-import HomePage from "objects/pages/home.page";
-import LoginPage from "objects/pages/login.page"
+import { BurgerMenuItems, ProductItems } from '@helpers/constants/burgerMenuItems';
+import HomePage from "@pages/home.page";
 
 test.describe('Home page tests', () => {
-    let loginPage : LoginPage;
     let homePage : HomePage;
 
     test.beforeEach(async ({ page }) => {
-        loginPage = new LoginPage(page);
         homePage = new HomePage(page);
-        await loginPage.navigate(process.env.BASE_URL);
+        await homePage.navigate(process.env.INV_URL)
     })
 
     test('Validate burger menu items', async () => {
-        await loginPage.loginUser(User.TEST_USER);
         await homePage.clickOnBurgerMenu()
         expect(await homePage.getBurgerMenuItems()).toEqual(BurgerMenuItems)  
     });
 
     test('Validate product items', async () => {
-        await loginPage.loginUser(User.TEST_USER);
         await homePage.clickOnBurgerMenu()
         expect(await homePage.getProductNames()).toEqual(ProductItems);
     })

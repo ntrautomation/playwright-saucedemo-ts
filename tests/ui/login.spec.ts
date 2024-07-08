@@ -1,9 +1,10 @@
 import { test, expect } from '@playwright/test';
-import { User } from 'objects/helper/constants/users';
-import HomePage from 'objects/pages/home.page';
-import LoginPage from 'objects/pages/login.page';
+import { User } from '@helpers/constants/users';
+import HomePage from '@pages/home.page';
+import LoginPage from '@pages/login.page';
 
 test.describe('Login page test', () => {
+    test.use({ storageState: { cookies: [], origins: [] } });
     let loginPage : LoginPage;
     let homePage : HomePage;
 

@@ -1,5 +1,5 @@
 import { Page } from "@playwright/test";
-import HelperMethods from "objects/helper/helperMethods";
+import HelperMethods from "@helpers/helperMethods";
 
 class BasePage{
 
