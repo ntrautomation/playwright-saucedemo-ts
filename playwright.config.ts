@@ -51,7 +51,7 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], 
-        headless: true,
+        headless: process.env.CI ? true : false
        },
     },
 
