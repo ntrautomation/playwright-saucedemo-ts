@@ -1,57 +1,53 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from '@fixtures/init';
 import { User } from '@helpers/constants/users';
-import HomePage from '@pages/home.page';
-import LoginPage from '@pages/login.page';
+
 
 test.describe('Login page test', () => {
     test.use({ storageState: { cookies: [], origins: [] } });
-    let loginPage : LoginPage;
-    let homePage : HomePage;
 
-    test.beforeEach(async ({ page }) => {
-        loginPage = new LoginPage(page);
-        homePage = new HomePage(page);
+    test.beforeEach(async ({ loginPage }) => {
         await loginPage.navigate(process.env.BASE_URL);
     })
     
-    test('Login - Happy flow', async () => {
+    test('Login - Happy flow', async ({ loginPage, homePage }) => {
         await loginPage.loginUser(User.TEST_USER);
         expect(await homePage.getHomeTitleText())
             .toBe('Products');
     }); 
 
-    test('Login - Problem user', async () => {
+    test('Login - Problem user', async ({ loginPage, homePage }) => {
         await loginPage.loginUser(User.PROBLEM_USER);
         expect(await homePage.getHomeTitleText())
             .toBe('Products');
     }); 
 
-    test('Login - Performance glitch user', async () => {
+    test('Login - Performance glitch user', async ({ loginPage, homePage }) => {
         await loginPage.loginUser(User.PERFORMANCE_GLITCH_USER);
         expect(await homePage.getHomeTitleText())
             .toBe('Products');
     }); 
 
-    test('Login - Error user', async () => {
+    test('Login - Error user', async ({ loginPage, homePage }) => {
         await loginPage.loginUser(User.ERROR_USER);
         expect(await homePage.getHomeTitleText())
             .toBe('Products');
     }); 
 
-    test('Login - Visual user', async () => {
+    test('Login - Visual user', async ({ loginPage, homePage }) => {
         await loginPage.loginUser(User.VISUAL_USER);
         expect(await homePage.getHomeTitleText())
             .toBe('Products');
     }); 
 
-    test('Login - Locked out user', async () => {
+    test('Login - Locked out user', async ({ loginPage }) => {
         await loginPage.loginUser(User.LOCKED_OUT_USER);
         expect(await loginPage.getErrorMessageText())
             .toContain('Sorry, this user has been locked out.');
         
     });
 
-    test('Login - Incorrect password', async () => {
+    test('Login - Incorrect password', async ({ loginPage }) => {
         await loginPage.loginUser(User.BAD_PW_USER);
         expect(await loginPage.getErrorMessageText())
             .toContain(' Username and password do not match any user in this service')
