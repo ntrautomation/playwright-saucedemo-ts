@@ -1,5 +1,5 @@
 import { test, expect} from '@fixtures/init';
-import { Env } from '@objects/envConfig/env';
+import { Env } from '@envConfig/env';
 import { PRODUCTS } from '@objects/helper/constants/productPageConsts';
 
 test.describe('Cart page tests', () => {
