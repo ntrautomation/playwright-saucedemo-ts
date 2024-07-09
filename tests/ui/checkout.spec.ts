@@ -28,6 +28,13 @@ test.describe('Checkout page test', () => {
         expect(await checkoutPage.getTotalPriceWithTax())
             .toStrictEqual(await checkoutPage.getTotalPriceText());
     })
+
+    test('Validate order completed', async ({ checkoutPage }) => {
+        await checkoutPage.fillCheckoutForm();
+        await checkoutPage.clickFinishBtn();
+        expect(await checkoutPage.getCompleteOrderText())
+            .toEqual('Thank you for your order!')
+    })
     
     
 })

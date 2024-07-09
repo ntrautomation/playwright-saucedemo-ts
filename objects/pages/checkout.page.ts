@@ -59,4 +59,19 @@ class CheckoutPage extends BasePage{
         );
         return x + y;
     }
+
+    //PAGE THREE
+
+    private readonly orderCompleteMessage: Locator = this.page.locator('.complete-header');
+    private readonly finishBtn: Locator = this.page.getByTestId('finish');
+    async getCompleteOrderText(){
+        const text: string[] 
+            = await this.helper.getItemsInnerText(
+                    this.orderCompleteMessage);
+        return text[0]
+    }
+
+    async clickFinishBtn(){
+        await this.finishBtn.click();
+    }
 }export default CheckoutPage;
