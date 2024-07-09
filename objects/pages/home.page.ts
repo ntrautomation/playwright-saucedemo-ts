@@ -12,7 +12,7 @@ class HomePage extends BasePage{
     private readonly burgerMenuItems: Locator = this.page.locator('.bm-item-list a');
     private readonly products: Locator = this.page.locator('.inventory_item_name');
     private readonly sortDropDown: Locator = this.page.locator('.product_sort_container')
-   // private readonly sortOptions = (option: string) => this.sortDropDown.getByRole("option", {name: option});
+    private readonly socialLinks: Locator = this.page.locator('.social li a');
 
     //METHODS
     async getHomeTitleText(){
@@ -29,6 +29,14 @@ class HomePage extends BasePage{
 
     async getProductNames(){
         return await this.helper.getItemsInnerText(this.products);
+    }
+
+    async getSocialLinkNames(){
+        return await this.helper.getItemsInnerText(this.socialLinks)
+    }
+
+    async getSocialLinks(i: number){
+        return await this.socialLinks.nth(i).getAttribute("href");
     }
 
     async selectOrderByOption(option: string){

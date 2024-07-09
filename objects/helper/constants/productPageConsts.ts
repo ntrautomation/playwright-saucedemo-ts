@@ -5,6 +5,18 @@ export const  BurgerMenuItems = [
         "Reset App State"
 ];
 
+export const SocialLinks = [
+        "Twitter",
+        "Facebook",
+        "LinkedIn"
+]
+
+export enum LINKS {
+        TWITTER = 'https://twitter.com/saucelabs',
+        FACEBOOK = 'https://www.facebook.com/saucelabs',
+        LINKEDIN = 'https://www.linkedin.com/company/sauce-labs/'
+}
+
 enum PRODUCTS  {
         BACKPACK = 'Sauce Labs Backpack',
         BIKE = 'Sauce Labs Bike Light',

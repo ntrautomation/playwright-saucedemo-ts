@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '@fixtures/init';
-import { BurgerMenuItems, ProductItems, ProductItemsReverse, ProductsByPriceHigh, ProductsByPriceLow, SORT } from '@helpers/constants/productPageConsts';
+import { BurgerMenuItems, LINKS, ProductItems, ProductItemsReverse, ProductsByPriceHigh, ProductsByPriceLow, SORT, SocialLinks } from '@helpers/constants/productPageConsts';
 import { Env } from '@envConfig/env';
 
 test.describe('Home page tests', () => {
@@ -32,4 +32,16 @@ test.describe('Home page tests', () => {
         await homePage.selectOrderByOption(SORT.Z_TO_A)
         expect(await homePage.getProductNames()).toEqual(ProductItemsReverse);
     });
+
+    test('Validate footer social links', async ({ homePage }) => {
+        expect(await homePage.getSocialLinkNames())
+            .toEqual(SocialLinks)
+        expect(await homePage.getSocialLinks(0))
+            .toEqual(LINKS.TWITTER);
+        expect(await homePage.getSocialLinks(1))
+            .toEqual(LINKS.FACEBOOK);
+        expect(await homePage.getSocialLinks(2))
+            .toEqual(LINKS.LINKEDIN);
+    })
+    
 })
