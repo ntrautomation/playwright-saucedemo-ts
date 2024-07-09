@@ -22,5 +22,12 @@ test.describe('Checkout page test', () => {
         await expect(await checkoutPage.getMandatoryFieldsError())
             .toContainText('Error: Postal Code is required');
     })
+
+    test('Validate item details at checkout', async ({ checkoutPage }) => {
+        await checkoutPage.fillCheckoutForm();
+        expect(await checkoutPage.getTotalPriceWithTax())
+            .toStrictEqual(await checkoutPage.getTotalPriceText());
+    })
+    
     
 })
