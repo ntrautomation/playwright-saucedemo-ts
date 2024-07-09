@@ -17,7 +17,7 @@ export enum LINKS {
         LINKEDIN = 'https://www.linkedin.com/company/sauce-labs/'
 }
 
-enum PRODUCTS  {
+export enum PRODUCTS  {
         BACKPACK = 'Sauce Labs Backpack',
         BIKE = 'Sauce Labs Bike Light',
         BOLT_SHIRT = 'Sauce Labs Bolt T-Shirt',

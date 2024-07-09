@@ -137,3 +137,4 @@ playwright/.auth
 
 #ignore loggedInState.json
 objects/state/loggedInState.json
+objects/state/itemToCartState.json

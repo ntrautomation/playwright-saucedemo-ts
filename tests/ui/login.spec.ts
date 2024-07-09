@@ -1,5 +1,4 @@
-import { expect } from '@playwright/test';
-import { test } from '@fixtures/init';
+import { test, expect} from '@fixtures/init';
 import { User } from '@helpers/constants/users';
 
 

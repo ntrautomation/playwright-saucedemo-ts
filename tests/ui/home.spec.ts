@@ -1,5 +1,4 @@
-import { expect } from '@playwright/test';
-import { test } from '@fixtures/init';
+import { test, expect } from '@fixtures/init';
 import { BurgerMenuItems, LINKS, ProductItems, ProductItemsReverse, ProductsByPriceHigh, ProductsByPriceLow, SORT, SocialLinks } from '@helpers/constants/productPageConsts';
 import { Env } from '@envConfig/env';
 

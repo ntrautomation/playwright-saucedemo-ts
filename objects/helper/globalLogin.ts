@@ -15,8 +15,12 @@ async function globalLogin(config: FullConfig){
         .fill(process.env.PASSWORD);
     await page.locator('[data-test="login-button"]')
         .click();
-
     await page.context().storageState({ path: Env.LOGGED_STATE_PATH});
+
+    await page.locator('#add-to-cart-sauce-labs-backpack')
+        .click();
+    await page.context().storageState({ path: Env.ITEM_TO_CART})
+
     await browser.close();
 }
 export default globalLogin;
